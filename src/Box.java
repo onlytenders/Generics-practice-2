@@ -1,8 +1,10 @@
-public class Box<T> {
+public class Box<K,T> {
     private T obj;
+    private K key;
 
-    public Box(T obj) {
+    public Box(K key, T obj) {
         this.obj = obj;
+        this.key = key;
     }
 
     public void setObj(T obj) {
@@ -13,10 +15,20 @@ public class Box<T> {
         return obj;
     }
 
+    public void setKey(K key) {
+        this.key = key;
+    }
+
+    public K getKey() {
+        return key;
+    }
+
     @Override
     public String toString() {
         return "Box{" +
-                "obj=" + obj +
+                "key=" + key +
+                "; keyType=" + key.getClass().getName() +
+                ", obj=" + obj +
                 "; objType=" + obj.getClass().getName() +
                 '}';
     }
